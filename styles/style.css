@@ -38,8 +38,7 @@ ol {
 }
 
 .content {
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
   align-items: end;
   justify-content: center;
   gap: 30px;
@@ -49,11 +48,11 @@ ol {
 }
 
 .result {
+    width: 711px;
 }
 
 .result__video-container {
-  width: 711px;
-  height: 386px;
+    height: 386px;
   margin-bottom: 16px;
   position: relative;
 }
@@ -65,6 +64,7 @@ ol {
 }
 
 .search-form {
+  height: 54px;
   display: flex;
   flex-direction: row;
   align-items: end;
@@ -97,6 +97,7 @@ label:has(:focus-visible) {
 
 label:not(.search-form__label-nounder):hover {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .search-form__label-text {
@@ -138,12 +139,27 @@ input::placeholder {
   height: 19px;
   border: 1px solid #fff;
   margin-right: 5px;
+  position: relative;
 }
 
-input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
-  width: 15px;
-  height: 15px;
-  background: #fff;
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px; 
+  bottom: 1px;
+  width: 15px; 
+  height: 15px; 
+  background-color: #fff; 
+}
+
+label span {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+input[type='checkbox']:focus-visible + span {
 }
 
 .search-form__checkbox {
@@ -171,6 +187,7 @@ button:focus-visible {
 
 button:hover {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 button:active {
@@ -191,6 +208,7 @@ button:active {
 }
 
 .title {
+  width: 260px;
   color: #fff;
   font-family: Oswald;
   font-size: 75px;
@@ -204,16 +222,17 @@ button:active {
 }
 
 .content__list {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 298px;
+  overflow: auto;
+  width: 100%;
   position: relative;
 }
 
 .cards-list-item-template {
+  
 }
 
 .content__list-item {
+  width: 100%;
 }
 
 li:not(:last-of-type) {
@@ -237,6 +256,7 @@ li:not(:last-of-type) {
 
 .content__card-link:hover {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .content__card-link:active {
@@ -244,23 +264,23 @@ li:not(:last-of-type) {
 }
 
 .content__card-link_current {
+  display: block;
   background: #545050;
 }
 
 .content__video-card {
+  height: 107px;
   display: flex;
-  flex-direction: row;
-  align-items: start;
 }
 
 .content__video-card-description-container {
-  width: 100%;
+  width: 195px;
   height: 100%;
 }
 
 .content__video-card-title {
   font-family: Oswald;
-  font-size: 30px;
+  font-size: 27px;
   font-weight: 700;
   line-height: 30px;
   text-transform: uppercase;
@@ -269,12 +289,17 @@ li:not(:last-of-type) {
 
 .content__video-card-description {
   font-family: Fira Sans Condensed;
+  font-size: 18px;
+  font-weight: 400;
   line-height: 16.2px;
 }
 
 .content__video-card-thumbnail {
-  width: 194px;
+  margin: auto;
+  width: 178px;
   height: 103px;
+  background-size: contain;
+
 }
 
 .more-button-template {
@@ -282,13 +307,5 @@ li:not(:last-of-type) {
 
 .more-button {
   width: 100%;
-}
-
-.error-template {
-}
-
-.error {
-}
-
-.error__title {
+  height: 34px;
 }
