@@ -46,7 +46,6 @@ ol {
   justify-content: center;
   gap: 30px;
   width: 1140px;
-  height: 67%;
 }
 
 .result__video-container {
@@ -89,12 +88,16 @@ ol {
   margin-right: 11px;
 }
 
+.search-form__label:last-child {
+  margin-right: 0;
+}
+
 label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
 
-.search-form__label-text:hover {
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -200,9 +203,10 @@ button:active {
 .content__details {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 24px;
   width: 401px;
   height: 100%;
+  min-height: 534px; /*чтобы не ломалось в режиме error*/
 }
 
 .title {
@@ -223,6 +227,7 @@ button:active {
 .content__list {
   overflow: auto;
   width: 100%;
+  max-height: 298px;
   position: relative;
 }
 
@@ -231,7 +236,7 @@ button:active {
 }
 
 li:not(:last-of-type) {
-  margin-bottom: 30px;
+  margin-bottom: 34px;
 }
 
 .content__card-link {
@@ -264,7 +269,6 @@ li:not(:last-of-type) {
 
 .content__video-card {
   display: flex;
-  min-height: 107px;
 }
 
 .content__video-card-description-container {
@@ -290,13 +294,14 @@ li:not(:last-of-type) {
 
 .content__video-card-thumbnail {
   margin: auto;
-  width: 182px;
+  width: 176px;
   height: 103px;
   object-position: center center;
+  object-fit: cover;
 }
 
 .more-button {
-  width: 390px;
+  width: 376px;
   height: 34px;
   margin: 2px;
 }
